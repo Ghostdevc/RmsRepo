@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="60dc5acb6b6e4967a3e992006aa5c6c5" Name="Diagram1">
+        <EntityTypeShape EntityType="rmsDbModel.tbl_check" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rmsDbModel.tbl_meals" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="rmsDbModel.tbl_order" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="rmsDbModel.tbl_order_has_meal" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rmsDbModel.tbl_order_has_pckgd" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="rmsDbModel.tbl_packaged" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="rmsDbModel.tbl_tables" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="rmsDbModel.tbl_users" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="rmsDbModel.FK_tbl_check_tbl_tables" ManuallyRouted="false" />
+        <AssociationConnector Association="rmsDbModel.FK_tbl_order_tbl_check" ManuallyRouted="false" />
+        <AssociationConnector Association="rmsDbModel.FK_tbl_order_has_meal_tbl_meals" ManuallyRouted="false" />
+        <AssociationConnector Association="rmsDbModel.FK_tbl_order_has_meal_tbl_order" ManuallyRouted="false" />
+        <AssociationConnector Association="rmsDbModel.FK_tbl_order_has_pckgd_tbl_order" ManuallyRouted="false" />
+        <AssociationConnector Association="rmsDbModel.FK_tbl_order_has_pckgd_tbl_packaged" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

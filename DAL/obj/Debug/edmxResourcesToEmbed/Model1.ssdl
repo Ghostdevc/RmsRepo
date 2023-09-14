@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rmsDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_check">
+    <Key>
+      <PropertyRef Name="check_id" />
+    </Key>
+    <Property Name="check_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="check_totalPrice" Type="float" Nullable="false" />
+    <Property Name="check_date" Type="datetime" Nullable="false" />
+    <Property Name="fk_table_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_meals">
+    <Key>
+      <PropertyRef Name="meal_id" />
+    </Key>
+    <Property Name="meal_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="meal_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="meal_price" Type="float" Nullable="false" />
+    <Property Name="meal_amount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="order_status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="order_date" Type="datetime" Nullable="false" />
+    <Property Name="order_totalPrice" Type="float" Nullable="false" />
+    <Property Name="fk_check_id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'rmsDb.dbo.tbl_order_has_meal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_order_has_meal">
+    <Key>
+      <PropertyRef Name="fk_order_id" />
+      <PropertyRef Name="fk_meal_id" />
+    </Key>
+    <Property Name="fk_order_id" Type="int" Nullable="false" />
+    <Property Name="fk_meal_id" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'rmsDb.dbo.tbl_order_has_packaged' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_order_has_packaged">
+    <Key>
+      <PropertyRef Name="fk_order_id" />
+      <PropertyRef Name="fk_pckgd_id" />
+    </Key>
+    <Property Name="fk_order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fk_pckgd_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_packaged">
+    <Key>
+      <PropertyRef Name="pckgd_id" />
+    </Key>
+    <Property Name="pckgd_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pckgd_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pckgd_price" Type="float" Nullable="false" />
+    <Property Name="pckgd_amount" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'rmsDb.dbo.tbl_password' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_password">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tables">
+    <Key>
+      <PropertyRef Name="table_id" />
+    </Key>
+    <Property Name="table_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="table_status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbl_check_tbl_tables">
+    <End Role="tbl_tables" Type="Self.tbl_tables" Multiplicity="1" />
+    <End Role="tbl_check" Type="Self.tbl_check" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_tables">
+        <PropertyRef Name="table_id" />
+      </Principal>
+      <Dependent Role="tbl_check">
+        <PropertyRef Name="fk_table_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_meal_tbl_meals">
+    <End Role="tbl_meals" Type="Self.tbl_meals" Multiplicity="1" />
+    <End Role="tbl_order_has_meal" Type="Self.tbl_order_has_meal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_meals">
+        <PropertyRef Name="meal_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_meal">
+        <PropertyRef Name="fk_meal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_meal_tbl_order">
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="1" />
+    <End Role="tbl_order_has_meal" Type="Self.tbl_order_has_meal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_meal">
+        <PropertyRef Name="fk_order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_packaged_tbl_order">
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="1" />
+    <End Role="tbl_order_has_packaged" Type="Self.tbl_order_has_packaged" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_packaged">
+        <PropertyRef Name="fk_order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_packaged_tbl_packaged">
+    <End Role="tbl_packaged" Type="Self.tbl_packaged" Multiplicity="1" />
+    <End Role="tbl_order_has_packaged" Type="Self.tbl_order_has_packaged" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_packaged">
+        <PropertyRef Name="pckgd_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_packaged">
+        <PropertyRef Name="fk_pckgd_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_tbl_check">
+    <End Role="tbl_check" Type="Self.tbl_check" Multiplicity="1" />
+    <End Role="tbl_order" Type="Self.tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_check">
+        <PropertyRef Name="check_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="fk_check_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="rmsDbModelStoreContainer">
+    <EntitySet Name="tbl_check" EntityType="Self.tbl_check" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_meals" EntityType="Self.tbl_meals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_order" EntityType="Self.tbl_order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_packaged" EntityType="Self.tbl_packaged" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tables" EntityType="Self.tbl_tables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_order_has_meal" EntityType="Self.tbl_order_has_meal" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_order_has_meal].[fk_order_id] AS [fk_order_id], 
+    [tbl_order_has_meal].[fk_meal_id] AS [fk_meal_id]
+    FROM [dbo].[tbl_order_has_meal] AS [tbl_order_has_meal]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_order_has_packaged" EntityType="Self.tbl_order_has_packaged" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_order_has_packaged].[fk_order_id] AS [fk_order_id], 
+    [tbl_order_has_packaged].[fk_pckgd_id] AS [fk_pckgd_id]
+    FROM [dbo].[tbl_order_has_packaged] AS [tbl_order_has_packaged]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_password" EntityType="Self.tbl_password" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_password].[id] AS [id], 
+    [tbl_password].[name] AS [name], 
+    [tbl_password].[password] AS [password]
+    FROM [dbo].[tbl_password] AS [tbl_password]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tbl_check_tbl_tables" Association="Self.FK_tbl_check_tbl_tables">
+      <End Role="tbl_tables" EntitySet="tbl_tables" />
+      <End Role="tbl_check" EntitySet="tbl_check" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_meal_tbl_meals" Association="Self.FK_tbl_order_has_meal_tbl_meals">
+      <End Role="tbl_meals" EntitySet="tbl_meals" />
+      <End Role="tbl_order_has_meal" EntitySet="tbl_order_has_meal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_meal_tbl_order" Association="Self.FK_tbl_order_has_meal_tbl_order">
+      <End Role="tbl_order" EntitySet="tbl_order" />
+      <End Role="tbl_order_has_meal" EntitySet="tbl_order_has_meal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_packaged_tbl_order" Association="Self.FK_tbl_order_has_packaged_tbl_order">
+      <End Role="tbl_order" EntitySet="tbl_order" />
+      <End Role="tbl_order_has_packaged" EntitySet="tbl_order_has_packaged" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_packaged_tbl_packaged" Association="Self.FK_tbl_order_has_packaged_tbl_packaged">
+      <End Role="tbl_packaged" EntitySet="tbl_packaged" />
+      <End Role="tbl_order_has_packaged" EntitySet="tbl_order_has_packaged" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_tbl_check" Association="Self.FK_tbl_order_tbl_check">
+      <End Role="tbl_check" EntitySet="tbl_check" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,70 @@
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\RMS.exe.config
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\RMS.exe
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\RMS.pdb
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\BLL.dll
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\DAL.dll
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\EntityFramework.dll
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\BLL.pdb
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\BLL.dll.config
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\DAL.pdb
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\DAL.dll.config
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\EntityFramework.xml
+C:\Users\Ata Berk\source\repos\RMS\RMS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.csproj.AssemblyReference.cache
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.csproj.SuggestedBindingRedirects.cache
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.CashierFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.EditOrderAdmin.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.EditOrderFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.AdminFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.KitchenFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.KitchenOrderFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.LogFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.Login.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.PaymentFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.ProductListFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.ViewOrdersFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.ViewOrdersFrmAdmin.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.WaiterFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.OrderFrm.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.Properties.Resources.resources
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.csproj.GenerateResource.cache
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.csproj.CoreCompileInputs.cache
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.csproj.CopyComplete
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.exe
+C:\Users\Ata Berk\source\repos\RMS\RMS\obj\Debug\RMS.pdb
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\RMS.exe.config
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\RMS.exe
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\RMS.pdb
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\BLL.dll
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\DAL.dll
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\EntityFramework.dll
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\BLL.pdb
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\BLL.dll.config
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\DAL.pdb
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\DAL.dll.config
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\EntityFramework.xml
+C:\Users\BORA\source\repos\RMS\RMS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.csproj.AssemblyReference.cache
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.csproj.SuggestedBindingRedirects.cache
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.CashierFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.EditOrderAdmin.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.EditOrderFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.AdminFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.KitchenFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.KitchenOrderFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.LogFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.Login.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.PaymentFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.ProductListFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.ViewOrdersFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.ViewOrdersFrmAdmin.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.WaiterFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.OrderFrm.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.Properties.Resources.resources
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.csproj.GenerateResource.cache
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.csproj.CoreCompileInputs.cache
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.csproj.CopyComplete
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.exe
+C:\Users\BORA\source\repos\RMS\RMS\obj\Debug\RMS.pdb

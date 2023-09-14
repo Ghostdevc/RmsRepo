@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rmsDbModelStoreContainer" CdmEntityContainer="rmsDbEntities1">
+    <EntitySetMapping Name="tbl_check">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_check">
+        <MappingFragment StoreEntitySet="tbl_check">
+          <ScalarProperty Name="isPaid" ColumnName="isPaid" />
+          <ScalarProperty Name="check_id" ColumnName="check_id" />
+          <ScalarProperty Name="check_totalPrice" ColumnName="check_totalPrice" />
+          <ScalarProperty Name="check_date" ColumnName="check_date" />
+          <ScalarProperty Name="fk_table_id" ColumnName="fk_table_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_meals">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_meals">
+        <MappingFragment StoreEntitySet="tbl_meals">
+          <ScalarProperty Name="meal_id" ColumnName="meal_id" />
+          <ScalarProperty Name="meal_name" ColumnName="meal_name" />
+          <ScalarProperty Name="meal_price" ColumnName="meal_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_order">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_order">
+        <MappingFragment StoreEntitySet="tbl_order">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="order_totalPrice" ColumnName="order_totalPrice" />
+          <ScalarProperty Name="fk_check_id" ColumnName="fk_check_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_order_has_meal">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_order_has_meal">
+        <MappingFragment StoreEntitySet="tbl_order_has_meal">
+          <ScalarProperty Name="fk_order_id" ColumnName="fk_order_id" />
+          <ScalarProperty Name="fk_meal_id" ColumnName="fk_meal_id" />
+          <ScalarProperty Name="order_has_meal_id" ColumnName="order_has_meal_id" />
+          <ScalarProperty Name="order_has_meal_amount" ColumnName="order_has_meal_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_order_has_pckgd">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_order_has_pckgd">
+        <MappingFragment StoreEntitySet="tbl_order_has_pckgd">
+          <ScalarProperty Name="fk_order_id" ColumnName="fk_order_id" />
+          <ScalarProperty Name="fk_pckgd_id" ColumnName="fk_pckgd_id" />
+          <ScalarProperty Name="order_has_pckgd_id" ColumnName="order_has_pckgd_id" />
+          <ScalarProperty Name="order_has_pckgd_amount" ColumnName="order_has_pckgd_amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_packaged">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_packaged">
+        <MappingFragment StoreEntitySet="tbl_packaged">
+          <ScalarProperty Name="pckgd_id" ColumnName="pckgd_id" />
+          <ScalarProperty Name="pckgd_name" ColumnName="pckgd_name" />
+          <ScalarProperty Name="pckgd_price" ColumnName="pckgd_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tables">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_tables">
+        <MappingFragment StoreEntitySet="tbl_tables">
+          <ScalarProperty Name="table_id" ColumnName="table_id" />
+          <ScalarProperty Name="table_status" ColumnName="table_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_users">
+      <EntityTypeMapping TypeName="rmsDbModel.tbl_users">
+        <MappingFragment StoreEntitySet="tbl_users">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

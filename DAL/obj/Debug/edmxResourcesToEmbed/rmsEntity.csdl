@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rmsDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_check">
+    <Key>
+      <PropertyRef Name="check_id" />
+    </Key>
+    <Property Name="check_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="check_totalPrice" Type="Double" Nullable="false" />
+    <Property Name="check_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fk_table_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_tables" Relationship="rmsDbModel.FK_tbl_check_tbl_tables" FromRole="tbl_check" ToRole="tbl_tables" />
+    <NavigationProperty Name="tbl_order" Relationship="rmsDbModel.FK_tbl_order_tbl_check" FromRole="tbl_check" ToRole="tbl_order" />
+  </EntityType>
+  <EntityType Name="tbl_meals">
+    <Key>
+      <PropertyRef Name="meal_id" />
+    </Key>
+    <Property Name="meal_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="meal_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="meal_price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tbl_order_has_meal" Relationship="rmsDbModel.FK_tbl_order_has_meal_tbl_meals" FromRole="tbl_meals" ToRole="tbl_order_has_meal" />
+  </EntityType>
+  <EntityType Name="tbl_order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="order_date" Type="DateTime" Precision="3" Nullable="false" />
+    <Property Name="order_totalPrice" Type="Double" Nullable="false" />
+    <Property Name="order_details" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="table_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fk_check_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_check" Relationship="rmsDbModel.FK_tbl_order_tbl_check" FromRole="tbl_order" ToRole="tbl_check" />
+    <NavigationProperty Name="tbl_order_has_meal" Relationship="rmsDbModel.FK_tbl_order_has_meal_tbl_order" FromRole="tbl_order" ToRole="tbl_order_has_meal" />
+    <NavigationProperty Name="tbl_order_has_pckgd" Relationship="rmsDbModel.FK_tbl_order_has_pckgd_tbl_order" FromRole="tbl_order" ToRole="tbl_order_has_pckgd" />
+  </EntityType>
+  <EntityType Name="tbl_packaged">
+    <Key>
+      <PropertyRef Name="pckgd_id" />
+    </Key>
+    <Property Name="pckgd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pckgd_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pckgd_price" Type="Double" Nullable="false" />
+    <NavigationProperty Name="tbl_order_has_pckgd" Relationship="rmsDbModel.FK_tbl_order_has_pckgd_tbl_packaged" FromRole="tbl_packaged" ToRole="tbl_order_has_pckgd" />
+  </EntityType>
+  <EntityType Name="tbl_tables">
+    <Key>
+      <PropertyRef Name="table_id" />
+    </Key>
+    <Property Name="table_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="table_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tbl_check" Relationship="rmsDbModel.FK_tbl_check_tbl_tables" FromRole="tbl_tables" ToRole="tbl_check" />
+  </EntityType>
+  <EntityContainer Name="rmsDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_check" EntityType="Self.tbl_check" />
+    <EntitySet Name="tbl_meals" EntityType="Self.tbl_meals" />
+    <EntitySet Name="tbl_order" EntityType="Self.tbl_order" />
+    <EntitySet Name="tbl_packaged" EntityType="Self.tbl_packaged" />
+    <EntitySet Name="tbl_tables" EntityType="Self.tbl_tables" />
+    <AssociationSet Name="FK_tbl_check_tbl_tables" Association="rmsDbModel.FK_tbl_check_tbl_tables">
+      <End Role="tbl_tables" EntitySet="tbl_tables" />
+      <End Role="tbl_check" EntitySet="tbl_check" />
+    </AssociationSet>
+    <EntitySet Name="tbl_users" EntityType="rmsDbModel.tbl_users" />
+    <EntitySet Name="tbl_order_has_meal" EntityType="rmsDbModel.tbl_order_has_meal" />
+    <EntitySet Name="tbl_order_has_pckgd" EntityType="rmsDbModel.tbl_order_has_pckgd" />
+    <AssociationSet Name="FK_tbl_order_tbl_check" Association="rmsDbModel.FK_tbl_order_tbl_check">
+      <End Role="tbl_check" EntitySet="tbl_check" />
+      <End Role="tbl_order" EntitySet="tbl_order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_meal_tbl_meals" Association="rmsDbModel.FK_tbl_order_has_meal_tbl_meals">
+      <End Role="tbl_meals" EntitySet="tbl_meals" />
+      <End Role="tbl_order_has_meal" EntitySet="tbl_order_has_meal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_meal_tbl_order" Association="rmsDbModel.FK_tbl_order_has_meal_tbl_order">
+      <End Role="tbl_order" EntitySet="tbl_order" />
+      <End Role="tbl_order_has_meal" EntitySet="tbl_order_has_meal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_pckgd_tbl_order" Association="rmsDbModel.FK_tbl_order_has_pckgd_tbl_order">
+      <End Role="tbl_order" EntitySet="tbl_order" />
+      <End Role="tbl_order_has_pckgd" EntitySet="tbl_order_has_pckgd" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_order_has_pckgd_tbl_packaged" Association="rmsDbModel.FK_tbl_order_has_pckgd_tbl_packaged">
+      <End Role="tbl_packaged" EntitySet="tbl_packaged" />
+      <End Role="tbl_order_has_pckgd" EntitySet="tbl_order_has_pckgd" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_tbl_check_tbl_tables">
+    <End Type="rmsDbModel.tbl_tables" Role="tbl_tables" Multiplicity="1" />
+    <End Type="rmsDbModel.tbl_check" Role="tbl_check" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_tables">
+        <PropertyRef Name="table_id" />
+      </Principal>
+      <Dependent Role="tbl_check">
+        <PropertyRef Name="fk_table_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_users">
+    <Key>
+      <PropertyRef Name="userID" />
+      <PropertyRef Name="userName" />
+      <PropertyRef Name="userPassword" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="userPassword" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_order_has_meal">
+    <Key>
+      <PropertyRef Name="order_has_meal_id" />
+    </Key>
+    <Property Name="fk_order_id" Type="Int32" Nullable="false" />
+    <Property Name="fk_meal_id" Type="Int32" Nullable="false" />
+    <Property Name="order_has_meal_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_has_meal_amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_meals" Relationship="rmsDbModel.FK_tbl_order_has_meal_tbl_meals" FromRole="tbl_order_has_meal" ToRole="tbl_meals" />
+    <NavigationProperty Name="tbl_order" Relationship="rmsDbModel.FK_tbl_order_has_meal_tbl_order" FromRole="tbl_order_has_meal" ToRole="tbl_order" />
+  </EntityType>
+  <EntityType Name="tbl_order_has_pckgd">
+    <Key>
+      <PropertyRef Name="order_has_pckgd_id" />
+    </Key>
+    <Property Name="fk_order_id" Type="Int32" Nullable="false" />
+    <Property Name="fk_pckgd_id" Type="Int32" Nullable="false" />
+    <Property Name="order_has_pckgd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="order_has_pckgd_amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_order" Relationship="rmsDbModel.FK_tbl_order_has_pckgd_tbl_order" FromRole="tbl_order_has_pckgd" ToRole="tbl_order" />
+    <NavigationProperty Name="tbl_packaged" Relationship="rmsDbModel.FK_tbl_order_has_pckgd_tbl_packaged" FromRole="tbl_order_has_pckgd" ToRole="tbl_packaged" />
+  </EntityType>
+  <Association Name="FK_tbl_order_tbl_check">
+    <End Type="rmsDbModel.tbl_check" Role="tbl_check" Multiplicity="1" />
+    <End Type="rmsDbModel.tbl_order" Role="tbl_order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_check">
+        <PropertyRef Name="check_id" />
+      </Principal>
+      <Dependent Role="tbl_order">
+        <PropertyRef Name="fk_check_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_meal_tbl_meals">
+    <End Type="rmsDbModel.tbl_meals" Role="tbl_meals" Multiplicity="1" />
+    <End Type="rmsDbModel.tbl_order_has_meal" Role="tbl_order_has_meal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_meals">
+        <PropertyRef Name="meal_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_meal">
+        <PropertyRef Name="fk_meal_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_meal_tbl_order">
+    <End Type="rmsDbModel.tbl_order" Role="tbl_order" Multiplicity="1" />
+    <End Type="rmsDbModel.tbl_order_has_meal" Role="tbl_order_has_meal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_meal">
+        <PropertyRef Name="fk_order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_pckgd_tbl_order">
+    <End Type="rmsDbModel.tbl_order" Role="tbl_order" Multiplicity="1" />
+    <End Type="rmsDbModel.tbl_order_has_pckgd" Role="tbl_order_has_pckgd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_pckgd">
+        <PropertyRef Name="fk_order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_order_has_pckgd_tbl_packaged">
+    <End Type="rmsDbModel.tbl_packaged" Role="tbl_packaged" Multiplicity="1" />
+    <End Type="rmsDbModel.tbl_order_has_pckgd" Role="tbl_order_has_pckgd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_packaged">
+        <PropertyRef Name="pckgd_id" />
+      </Principal>
+      <Dependent Role="tbl_order_has_pckgd">
+        <PropertyRef Name="fk_pckgd_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

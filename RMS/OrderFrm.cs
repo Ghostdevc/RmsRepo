@@ -1,0 +1,216 @@
+﻿using BLL;
+using DAL;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.Data.Entity.Infrastructure.Interception;
+using System.Data.Entity.Validation;
+using System.Data.SqlTypes;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+
+namespace RMS
+{
+    public partial class OrderFrm : Form
+    {
+        public static readonly rmsDbEntities1 db = new rmsDbEntities1();
+        struct ProductItem
+        {
+            public float price;
+
+            public ProductItem(float price)
+            {
+                this.price = price;
+            }
+        }
+
+        public OrderFrm()
+        {
+            InitializeComponent();
+
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WaiterFrm waiterFrm = new WaiterFrm();
+            waiterFrm.Show();
+            this.Hide();
+        }
+
+        private void OrderFrm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = Order.getProducts();
+            dataGridView2.DataSource = Order.getPckProducts();
+
+        }
+
+
+        public void totalPriceCounter()
+        {
+            double totalPrice = 0;
+            for (int i = 0; i < dataGridView3.Rows.Count -1; i++)
+            {
+                totalPrice += double.Parse(dataGridView3.Rows[i].Cells[5].Value.ToString());
+            }
+
+            label7.Text = totalPrice.ToString();
+
+
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            /*var index = this.dataGridView3.Rows.Add();
+            this.dataGridView1.Rows[index].Cells[0].Value = txtId.Text;
+            this.dataGridView1.Rows[index].Cells[1].Value = txtName.Text;
+            this.dataGridView1.Rows[index].Cells[2].Value = txtPrice.Text;
+            this.dataGridView1.Rows[index].Cells[3].Value = txtAmount.Text;*/
+
+            DataGridViewRow row = (DataGridViewRow)dataGridView3.Rows[0].Clone();
+            
+
+            row.Cells[0].Value = txtId.Text;
+            row.Cells[1].Value = txtName.Text;
+            row.Cells[2].Value = txtPrice.Text;
+            row.Cells[3].Value = txtAmount.Text;
+            row.Cells[4].Value = txtType.Text;
+            double totalPrice = double.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
+            row.Cells[5].Value = totalPrice;
+            dataGridView3.Rows.Add(row);
+            totalPriceCounter();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView3.Rows.RemoveAt(dataGridView3.SelectedRows[0].Index);
+            totalPriceCounter();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tbl_order order = new tbl_order();
+                tbl_tables table = new tbl_tables();
+                table.table_id = int.Parse(cmbTable.SelectedItem.ToString());
+
+                ArrayList orderMealList = new ArrayList();
+                ArrayList orderPckgdList = new ArrayList();
+
+                for (int i = 0; i < dataGridView3.Rows.Count - 1; i++)
+                {
+
+
+
+                    if (dataGridView3.Rows[i].Cells[4].Value.ToString() == "Meal")
+                    {
+                        tbl_order_has_meal meal = new tbl_order_has_meal();
+                        meal.fk_meal_id = int.Parse(dataGridView3.Rows[i].Cells[0].Value.ToString());
+                        meal.order_has_meal_amount = int.Parse(dataGridView3.Rows[i].Cells[3].Value.ToString());
+                        orderMealList.Add(meal);
+                    }
+                    if (dataGridView3.Rows[i].Cells[4].Value.ToString() == "Packaged")
+                    {
+                        tbl_order_has_pckgd pckgd = new tbl_order_has_pckgd();
+                        pckgd.fk_pckgd_id = int.Parse(dataGridView3.Rows[i].Cells[0].Value.ToString());
+                        pckgd.order_has_pckgd_amount = int.Parse(dataGridView3.Rows[i].Cells[3].Value.ToString());
+                        orderPckgdList.Add(pckgd);
+                    }
+
+
+                }
+
+                order.order_date = DateTime.UtcNow;
+                order.order_status = "Active";
+
+                string tp = label7.Text;
+                double tPrice = double.Parse(tp);
+                order.order_totalPrice = tPrice;
+
+
+
+                if (Table.isBusy(table) != true)
+                {
+                    table.table_status = "Busy";
+                }
+                if (Table.isTableHasUnpaidCheck(table) != true)
+                {
+                    tbl_check check = new tbl_check();
+                    check.isPaid = "false";
+                    check.fk_table_id = int.Parse(table.table_id.ToString());
+                    check.check_date = DateTime.UtcNow;
+                    check.check_totalPrice = double.Parse(label7.Text);
+                    //Create check method
+                    Check.createCheck(orderMealList, orderPckgdList, order, check, table);
+                    MessageBox.Show("Order Created!");
+                }
+                else
+                {
+                    int activeCheckId = Table.getTablesHasUnpaidCheck(table);
+                    //Update check method
+                    Check.updateCheck(orderMealList, orderPckgdList, order, activeCheckId, table);
+                    MessageBox.Show("Order Created!");
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+                
+            }
+           
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = (DataGridViewRow)dataGridView3.Rows[0].Clone();
+            
+            row.Cells[0].Value = txtId.Text;
+            row.Cells[1].Value = txtName.Text;
+            row.Cells[2].Value = txtPrice.Text;
+            row.Cells[3].Value = txtAmount.Text;
+            row.Cells[4].Value = txtType.Text;     
+            float totalPrice = float.Parse(row.Cells[2].Value.ToString()) * int.Parse(row.Cells[3].Value.ToString());
+            row.Cells[5].Value = totalPrice;
+            dataGridView3.Rows.Add(row);
+            totalPriceCounter();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {     
+            dataGridView3.Rows.RemoveAt(dataGridView3.SelectedRows[0].Index);
+            totalPriceCounter();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtName.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            txtPrice.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            txtAmount.Text = numericUpDown1.Value.ToString();
+            txtType.Text = "Meal";
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+            txtName.Text = dataGridView2.CurrentRow.Cells[1].Value.ToString();
+            txtPrice.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
+            txtAmount.Text = numericUpDown2.Value.ToString();
+            txtType.Text = "Packaged";
+        }
+
+
+    }
+}

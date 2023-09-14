@@ -1,0 +1,30 @@
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\BLL.dll.config
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\BLL.dll
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\BLL.pdb
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\DAL.dll
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\DAL.pdb
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\DAL.dll.config
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Ata Berk\source\repos\RMS\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ata Berk\source\repos\RMS\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\Ata Berk\source\repos\RMS\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\Ata Berk\source\repos\RMS\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\Ata Berk\source\repos\RMS\BLL\obj\Debug\BLL.dll
+C:\Users\Ata Berk\source\repos\RMS\BLL\obj\Debug\BLL.pdb
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\BLL.dll.config
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\BLL.dll
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\BLL.pdb
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\DAL.dll
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\EntityFramework.dll
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\DAL.pdb
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\DAL.dll.config
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\EntityFramework.xml
+C:\Users\BORA\source\repos\RMS\BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\BORA\source\repos\RMS\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+C:\Users\BORA\source\repos\RMS\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\BORA\source\repos\RMS\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\BORA\source\repos\RMS\BLL\obj\Debug\BLL.dll
+C:\Users\BORA\source\repos\RMS\BLL\obj\Debug\BLL.pdb

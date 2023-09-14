@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AEEB5ED-C628-4C31-8326-980964DBB359}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RMS</RootNamespace>
+    <AssemblyName>RMS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CashierFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CashierFrm.Designer.cs">
+      <DependentUpon>CashierFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Panel\EditOrderAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Panel\EditOrderAdmin.Designer.cs">
+      <DependentUpon>EditOrderAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditOrderFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditOrderFrm.Designer.cs">
+      <DependentUpon>EditOrderFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Panel\AdminFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Panel\AdminFrm.Designer.cs">
+      <DependentUpon>AdminFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KitchenFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KitchenFrm.Designer.cs">
+      <DependentUpon>KitchenFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KitchenOrderFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KitchenOrderFrm.Designer.cs">
+      <DependentUpon>KitchenOrderFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogFrm.Designer.cs">
+      <DependentUpon>LogFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentFrm.Designer.cs">
+      <DependentUpon>PaymentFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Panel\ProductListFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Panel\ProductListFrm.Designer.cs">
+      <DependentUpon>ProductListFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rmsDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rmsDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ViewOrdersFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewOrdersFrm.Designer.cs">
+      <DependentUpon>ViewOrdersFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin Panel\ViewOrdersFrmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin Panel\ViewOrdersFrmAdmin.Designer.cs">
+      <DependentUpon>ViewOrdersFrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaiterFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaiterFrm.Designer.cs">
+      <DependentUpon>WaiterFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderFrm.Designer.cs">
+      <DependentUpon>OrderFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CashierFrm.resx">
+      <DependentUpon>CashierFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Panel\EditOrderAdmin.resx">
+      <DependentUpon>EditOrderAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditOrderFrm.resx">
+      <DependentUpon>EditOrderFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Panel\AdminFrm.resx">
+      <DependentUpon>AdminFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KitchenFrm.resx">
+      <DependentUpon>KitchenFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KitchenOrderFrm.resx">
+      <DependentUpon>KitchenOrderFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogFrm.resx">
+      <DependentUpon>LogFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentFrm.resx">
+      <DependentUpon>PaymentFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Panel\ProductListFrm.resx">
+      <DependentUpon>ProductListFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewOrdersFrm.resx">
+      <DependentUpon>ViewOrdersFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin Panel\ViewOrdersFrmAdmin.resx">
+      <DependentUpon>ViewOrdersFrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaiterFrm.resx">
+      <DependentUpon>WaiterFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderFrm.resx">
+      <DependentUpon>OrderFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="rmsDbDataSet.xsc">
+      <DependentUpon>rmsDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="rmsDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>rmsDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="rmsDbDataSet.xss">
+      <DependentUpon>rmsDbDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{e8cfa87d-8e36-4e86-b6c1-558452177c0f}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{cf17c8e4-64ad-4fdc-9955-61c48a615a2b}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

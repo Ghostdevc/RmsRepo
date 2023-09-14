@@ -1,0 +1,24 @@
+C:\Users\Ata Berk\source\repos\RMS\DAL\bin\Debug\DAL.dll.config
+C:\Users\Ata Berk\source\repos\RMS\DAL\bin\Debug\DAL.dll
+C:\Users\Ata Berk\source\repos\RMS\DAL\bin\Debug\DAL.pdb
+C:\Users\Ata Berk\source\repos\RMS\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Ata Berk\source\repos\RMS\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ata Berk\source\repos\RMS\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Ata Berk\source\repos\RMS\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ata Berk\source\repos\RMS\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\Ata Berk\source\repos\RMS\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Ata Berk\source\repos\RMS\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Ata Berk\source\repos\RMS\DAL\obj\Debug\DAL.dll
+C:\Users\Ata Berk\source\repos\RMS\DAL\obj\Debug\DAL.pdb
+C:\Users\BORA\source\repos\RMS\DAL\bin\Debug\DAL.dll.config
+C:\Users\BORA\source\repos\RMS\DAL\bin\Debug\DAL.dll
+C:\Users\BORA\source\repos\RMS\DAL\bin\Debug\DAL.pdb
+C:\Users\BORA\source\repos\RMS\DAL\bin\Debug\EntityFramework.dll
+C:\Users\BORA\source\repos\RMS\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\BORA\source\repos\RMS\DAL\bin\Debug\EntityFramework.xml
+C:\Users\BORA\source\repos\RMS\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\BORA\source\repos\RMS\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\BORA\source\repos\RMS\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\BORA\source\repos\RMS\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\BORA\source\repos\RMS\DAL\obj\Debug\DAL.dll
+C:\Users\BORA\source\repos\RMS\DAL\obj\Debug\DAL.pdb
